@@ -8,6 +8,10 @@ puts "Alex DeLarge"
 puts "The Wicked Witch of the West"
 puts "Terminator"
 puts "Freddy Krueger"
-puts "The joker"
+puts "The Joker"
 puts "Joffrey Baratheon"
 puts "Norman Bates"
+# End of names being entered. Summary follows
+print "Overall, we have"
+print 11
+puts " great students"
