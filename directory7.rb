@@ -1,7 +1,7 @@
 =begin
 In the input_students method the cohort value is hard-coded. 
 DONE How can you ask for both the name and the cohort?
-What if one of the values is empty? Can you supply a default value? 
+DONE What if one of the values is empty? Can you supply a default value? 
 DONE The input will be given to you as a string? How will you convert it to a symbol?
 DONE What if the user makes a typo?
 =end
@@ -16,6 +16,9 @@ def input_students
   if name == "stop"
     return $students
   else
+    if name == ""
+      name = "NO NAME ENTERED"
+    end
     puts "Enter #{name}'s cohort"
     cohort = gets.chomp.to_sym
     puts "Is this the correct name and cohort: #{name}, #{cohort}? Enter yes or no"

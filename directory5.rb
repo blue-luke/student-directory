@@ -9,16 +9,6 @@ def input_students
   collect_names = true
   # create an empty array
   students = []
-=begin
-  puts "Enter name"
-  name = gets.chomp
-  puts "Enter #{name}'s hobby"
-  hobby = gets.chomp
-  puts "Enter #{name}'s country of birth"
-  cob = gets.chomp
-  puts "Enter #{name}'s height in cm"
-  height = gets.chomp
-=end
   while collect_names do
     puts "Enter name"
     name = gets.chomp
