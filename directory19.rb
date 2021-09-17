@@ -1,3 +1,11 @@
+=begin
+We are de-facto using CSV format to store data. 
+However, Ruby includes a library to work with the CSV files 
+that we could use instead of working directly with the files. 
+Refactor the code to use this library.
+=end
+
+require 'csv'
 @students = []
 
 def interactive_menu
@@ -73,22 +81,18 @@ def print_footer
 end
 
 def save_students
-  file = File.open("students.csv", "w")
-  @students.each do |student|
-    student_data = [student[:name], student [:cohort]]
-    csv_line = student_data.join(",")
-    file.puts csv_line
+  CSV.open("students.csv", "wb") do |csv|
+    @students.each do |student|
+      csv << ["#{student[:name]}", "#{student[:cohort]}"]
+    end
   end
-  file.close
 end
 
 def load_students(filename = "students.csv")
-  file = File.open(filename, "r")
-  file.readlines.each do |line|
-    name, cohort = line.chomp.split(",")
+  CSV.foreach(filename) do |row|
+    name, cohort = row
     @students << {name: name, cohort: cohort.to_sym}
   end
-  file.close
 end
 
 def try_load_students
